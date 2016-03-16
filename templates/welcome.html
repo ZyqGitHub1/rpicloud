@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>Welcome</h1>
+<div class="center">
+	<p>欢迎登录RPIcloud树莓派在线家居管理系统，本向导可设置所需的基本网络参数，请单击下方选项继续。若要详细设置某项功能或参数，请点击上方相关栏目。</p>
+	<div>
+		<table class = "left">
+				<tr>
+					<td><a href="{{ url_for('change_admin_password') }}">	修改管理员密码</a></td>
+				</tr>
+				<tr>
+					<td><a href="{{ url_for('email') }}">设置收发信邮箱</a></td>
+				</tr>
+				<tr>
+					<td><a href="{{ url_for('register') }}">注册新用户</a></td>
+				</tr>
+				<tr>
+					<td><a href="{{ url_for('switch') }}">操作设备</a></td>
+				</tr>
+				<tr>
+					<td><a href="{{ url_for('camera') }}">在线监控</a></td>
+				</tr>
+		</table>
+	</div>
+</div>
+{% endblock %}

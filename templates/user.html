@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+<h2>RPIcloud</h2>
+<div class="center">
+  <form name = "gpio" action = "{{ url_for('gpio') }}" method = "POST">
+  <table>
+  	<tr>
+  		<td><input type = "text" name = "id"></td>
+  		<td><input type = "submit" value = "确定" /></td>
+  	</tr>
+  	<tr>
+  	<td><input type = "radio" name = "turn" value = "on">开</td>
+  	<td><input type = "radio" name = "turn" value = "off">关</td>
+  	</tr>
+  	<tr>
+  		<td><a href="{{ url_for('logout') }}">log out</a></td>
+  	</tr>
+  </table>
+  </form>
+</div>
+{% endblock %}

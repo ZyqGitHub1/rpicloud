@@ -1,0 +1,41 @@
+footer{
+	text-align: center;
+}
+h2,h1{
+	text-align: center;
+}
+.center{
+	text-align: center;
+}
+table{
+	margin : auto;
+	border: thin solid black;
+}
+td{
+	border: thin solid black;
+}
+nav{
+	background-color: #2894FF;
+}
+#nav{
+	font-size: xx-large;
+}
+.m{
+	margin-left: 40px;
+}
+footer{
+	background-color: #2894FF;
+}
+.left{
+	text-align: left;
+}
+.flash{
+	background: #cee5F5; 
+	padding: 0.5em;
+ 	border: 1px solid #aacbe2; 
+}
+.error{
+	background: #f0d6d6; 
+	padding: 0.5em;
+	border: 1px solid #aacbe2;
+}

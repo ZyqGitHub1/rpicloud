@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block body %}
+<div id = 'canvasDiv'>
+<h2>计划时间设置</h2>
+<form action="">
+	<table>
+	<tr>
+		<td>时间(格式：month-day
+		-hour-min)</td>
+		<td>选择要执行的任务</td>
+	</tr>
+		<tr>
+			<td><input type="text" name = "time"></td>
+			<td>
+				<select name="select" id="select">
+					<option value="ledon">开灯</option>
+					<option value="ledoff">关灯</option>
+					<option value="vidon">打开监控</option>
+					<option value="vidoff">关闭监控</option>
+				</select>
+			</td>
+			<td>
+				<select name="led" id="led">
+					<option value="0">1号灯</option>
+					<option value="1">2号灯</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td><input type="submit" value = "确定"></td>
+		</tr>
+	</table>
+
+
+
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>Welcome</h1>
+{% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+<div class="center">
+	<p>此页面设置收发信息的邮箱，请确保发件邮箱已经开启STMP及POP3功能</p>
+</div>
+<div class="center">
+	<form action="{{ url_for('emailsend') }}" method = "POST">
+		<table>
+			</tr>
+				<th>权限:</th>
+				<td>发信邮箱</td>
+			</tr>
+			<tr>
+				<th>邮箱:</th>
+				<td><input type = "text" name = "email"></td>
+			</tr>
+			<tr>
+				<th>请输入密码:</th>
+				<td><input type = "password" name = "email_pw1"></td>
+			</tr>
+			<tr>
+				<th>请再次输入密码:</th>
+				<td><input type = "password" name = "email_pw2"></td>
+				</tr>
+			<tr>
+          		<td><input type = "submit" value = "Login"></td>
+          </tr>
+		</table>
+	</form>
+</div>
+{% endblock %}

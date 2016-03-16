@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block body %}
+<h2>设置监控选项</h2>
+{% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+<form action="{{ url_for('config') }}" method="POST">
+<table>
+	<tr>
+		<th>项目</th>
+		<th>状态</th>
+		<th>模式设置</th>
+		<th>删除</th>
+	</tr>
+	<tr>
+		<td>邮箱提醒</td>
+		<td>{{ email_status }}</td>
+		<td>
+		<select name="email_s" id="">
+			<option value="0">0.关</option>
+			<option value="1">1.有人发信</option>
+			<option value="2">2.夜间有人发信</option>
+		</select>
+		</td>
+	</tr>
+	{% for light in lightlist %}
+    <tr>
+    	<td>{{ light.name }}</td>
+    	<td>{{ light.mode }}</td>
+    	<td>
+    	<select name="{{ light.name }}" id="">
+			<option value="0">0.关</option>
+			<option value="1">1.夜间开灯</option>
+			<option value="2">2.有人开灯</option>
+			<option value="3">3.夜间有人开灯</option>
+		</select>
+		</td>
+		<td><input type="checkbox" name = "deletelight" value = "{{ light.name }}"></td>
+    </tr>
+  {% else %}
+    <em>Unbelievable.  No light here so far</em>
+  {% endfor %}
+	<tr>
+		<td><input type = "submit" value = "确定"></td>
+	</tr>
+</table>
+</form>
+<div class = "center">
+<h2>添加设备</h2>
+<form action="{{ url_for('config_add') }}" method="POST">
+<table>
+	<tr>
+		<td>设备接口</td>
+	</tr>
+	<tr>
+		<td><input type = "text" name = "newlight"></td>
+	</tr>
+	<tr>
+		<td><input type = "submit" value = "确定"></td>
+	</tr>
+</table>
+</form>
+</div>
+{% endblock %}

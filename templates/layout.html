@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>RPIcloud</title>
+	<link rel = "stylesheet" type = "text/css" href = "{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+	<div class = "center">
+		<img src="{{url_for('static', filename='logo.png')}}" alt="PRIcloudlogo">
+	</div>
+{% if session.get("logged_in") %}
+	<h2>User:{{ session.get("username") }}</h2>
+	<nav class = "center">
+		<div id = "nav">
+			<a href="{{ url_for('welcome') }}">欢迎</a>
+			<a href="{{ url_for('config') }}" class = "m">设置</a>
+			<a href="{{ url_for('register') }}" class = "m">注册</a>
+			<a href="{{ url_for('manage') }}" class = "m">管理</a>
+			<a href="{{ url_for('logout') }}" class = "m">登出</a>
+		</div>
+	</nav>
+{% endif %}
+  {% for message in get_flashed_messages() %}
+    <div class = "flash">{{ message }}</div>
+  {% endfor %}
+{% block body %}{% endblock %}
+</body>
+<footer>
+	<img id = "htmlico" src="{{url_for('static', filename='HTML5_Logo_64.png')}}" alt="html5">
+</footer>
+</html>

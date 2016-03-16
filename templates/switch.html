@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="center">
+  <table>
+  <tr>
+  {% for img in imglist %}
+  {% if img.status == "0" %}
+  <form name = "gpio" action = "{{ url_for('switch') }}" method = "POST">
+  <input type="text" name = "up" value="{{img.light}}">
+  <td><input name="submit" type="image" src="{{url_for('static', filename='off.jpg')}}"></td>
+  </form>
+  {% else %}
+  <form name = "gpio" action = "{{ url_for('switch') }}" method = "POST">
+  <input type="text" name = "up" value="{{img.light}}">
+  <td><input name="submit" type="image" src="{{url_for('static', filename='on.jpg')}}"></td>
+  </form>
+  {% endif %}
+  {% else %}
+    <em>Unbelievable.  No email here so far</em>
+  {% endfor %}
+  </tr>
+  </table>
+</div>
+{% endblock %}

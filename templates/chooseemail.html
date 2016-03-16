@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>Welcome</h1>
+<div class="center">
+	<p>请选择设置邮箱的类型，确保发件邮箱已经开启STMP及POP3功能</p>
+<div>
+<div class="center">
+	<form action="{{ url_for('email') }}" onsubmit="return validate_form(this);" method = "POST">
+		<table>
+			</tr>
+				<th>权限:</th>
+				<td><input type = "radio" name = "access" value = "0">发信邮箱</td>
+				<td><input type = "radio" name = "access" value = "1">收信邮箱</td>
+			</tr>
+          		<td><input type = "submit" value = "确定"></td>
+          </tr>
+		</table>
+	</form>
+</div>
+<div class = "center">
+<h2>已添加的邮箱</h2>
+<table>
+  {% for email in emaillist %}
+    <tr>
+    	<td>email:</td>
+    	<td>{{ email.email }}</td>
+    	<td>access:</td>
+    	<td>{{ email.access }}</td>
+    </tr>
+  {% else %}
+    <em>Unbelievable.  No email here so far</em>
+  {% endfor %}
+</table>
+</div>
+{% endblock %}

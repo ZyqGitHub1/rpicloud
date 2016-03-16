@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>Welcome</h1>
+{% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+<div class="center">
+	<p>此页面用于管理用户及邮箱信息</p>
+</div>
+<table>
+<tr>
+<td>
+<div class="center">
+<h2>用户管理</h2>
+<form action="{{ url_for('manage_user') }}" method = "POST">
+	<table>
+  <tr>
+    <td>username</td>
+    <td>access</td>
+    <td>delete</td>
+  </tr>
+  {% for user in userlist %}
+    <tr>
+      <td>{{ user.username }}</td>
+      <td>{{ user.access }}</td>
+      <td><input type="checkbox" name = "deleteuser" value = "{{ user.username }}"></td>
+    </tr>
+  {% else %}
+    <em>Unbelievable.  No user here so far</em>
+  {% endfor %}
+  <tr>
+    <td><input type = "submit" value = "确定"></td>
+  </tr>
+  </table>
+  </form>
+</div>
+</td>
+<td>
+<div class="center">
+<h2>已添加的邮箱</h2>
+<form action="{{ url_for('manage_email') }}" method = "POST">
+<table>
+  <tr>
+    <td>email</td>
+    <td>access</td>
+    <td>delete</td>
+  </tr>
+  {% for email in emaillist %}
+    <tr>
+    	<td>{{ email.email }}</td>
+    	<td>{{ email.access }}</td>
+      <td><input type="checkbox" name = "deleteemail" value = "{{ email.email }}"></td>
+    </tr>
+  {% else %}
+    <em>Unbelievable.  No email here so far</em>
+  {% endfor %}
+  <tr>
+    <td><input type = "submit" value = "确定"></td>
+  </tr>
+</table>
+</form>
+</div>
+</td>
+</tr>
+</table>
+{% endblock %}
